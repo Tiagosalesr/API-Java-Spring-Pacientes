@@ -1,4 +1,14 @@
 
+*24/03/2026*
+
+- Desenvolvimento de Lógica de Serviço: Implementação do método de importação de arquivos CSV no PacienteService, utilizando BufferedReader e ClassPathResource para processamento eficiente de dados.
+
+- Tratamento e Sanitização de Dados: Aplicação de lógica de limpeza de strings (remoção de aspas e tratamento de valores "NULL") e conversão de tipos complexos como LocalDateTime e Boolean.
+
+- Refatoração de Infraestrutura de Banco: Reestruturação da chave primária da tabela para o padrão IDENTITY e sincronização do mapeamento JPA para garantir a geração automática de IDs pelo PostgreSQL.
+
+- Exposição de Endpoints REST: Criação do PacienteController para disponibilizar gatilhos de importação via requisições HTTP GET, permitindo a interação entre o navegador e a camada de serviço.
+
 *23/03/2026*
 Estou trabalhando no projeto a 4 dias, mas decidi hoje criar o diário. 
 Vou separar o dia de hoje em duas parte: Tarefas dos dias passados e Tarefas feitas hoje.
@@ -13,4 +23,4 @@ Vou separar o dia de hoje em duas parte: Tarefas dos dias passados e Tarefas fei
 *Tarefas realizadas hoje:*
 
 - Mapeamento Objeto-Relacional: Implementação da Entity Paciente utilizando anotações do JPA e Lombok para otimização de código.
-- Evolução de Esquema: Aplicação de migrações estruturais no banco de dados via script schema.sql para garantir a integridade da tabela de pacientes.
+- Evolução de Esquema: Aplicação de migrações estruturais no banco de dados via script para garantir a integridade da tabela de pacientes.
