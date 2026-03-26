@@ -4,6 +4,7 @@ import com.example.demo.model.Paciente;
 import com.example.demo.repository.PacienteRepository;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestAttribute;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,6 +12,7 @@ import java.io.FileReader;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PacienteService {
@@ -20,8 +22,12 @@ public class PacienteService {
         this.repository = repository;
     }
 
-    public List<Paciente> ListarTodos() {
+    public List<Paciente> listarTodos() {
         return repository.findAll();
+    }
+
+    public Optional<Paciente> findByCpf(String cpf){
+            return repository.findByCpf(cpf);
     }
 
     public void importarCSV() {

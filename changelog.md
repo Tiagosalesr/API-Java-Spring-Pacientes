@@ -1,4 +1,14 @@
 
+*25/03/2026*
+
+- Implementação do Endpoint listAll: Criação de método GET no PacienteController para retorno da lista completa de registros via service.findAll().
+
+- Implementação do Endpoint findByCpf: Adição de busca por @PathVariable no controller, permitindo a recuperação de pacientes específicos através do documento.
+
+- Criação de Query Method no Repository: Definição da assinatura findByCpf(String cpf) no PacienteRepository para automação da consulta SQL via Spring Data JPA.
+
+- Tratamento de Retornos HTTP: Configuração de respostas com ResponseEntity e Optional, estabelecendo os status 200 OK para buscas bem-sucedidas e 404 Not Found para CPFs inexistentes.
+
 *24/03/2026*
 
 - Desenvolvimento de Lógica de Serviço: Implementação do método de importação de arquivos CSV no PacienteService, utilizando BufferedReader e ClassPathResource para processamento eficiente de dados.

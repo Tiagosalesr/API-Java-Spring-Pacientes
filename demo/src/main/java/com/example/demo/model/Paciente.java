@@ -1,12 +1,16 @@
 package com.example.demo.model;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "pacientes")
 @Data
+@Getter
+@Setter
 
 public class Paciente {
     @Id
@@ -65,4 +69,5 @@ public class Paciente {
 
     @Column(name = "participa_smart_monitor", nullable = false)
     private Boolean participaSmartMonitor;
+
 }
