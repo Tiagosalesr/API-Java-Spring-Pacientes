@@ -2,9 +2,15 @@ package com.example.demo.service;
 
 import com.example.demo.model.Paciente;
 import com.example.demo.repository.PacienteRepository;
+import com.example.demo.request.PacienteMapper;
+import com.example.demo.request.PacientePutRequestBody;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -12,8 +18,8 @@ import java.io.FileReader;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Optional;
 
+@Slf4j
 @Service
 public class PacienteService {
     private final PacienteRepository repository;
@@ -26,8 +32,45 @@ public class PacienteService {
         return repository.findAll();
     }
 
-    public Optional<Paciente> findByCpf(String cpf){
-            return repository.findByCpf(cpf);
+    public Paciente findByCpf(String cpf) {
+        return repository.findByCpf(cpf)
+                .map(paciente -> {
+                    log.info("Paciente encontrado. ID interno {}.", paciente.getId());
+                    return paciente;
+                })
+                .orElseThrow(() -> {
+                    log.warn("Tentativa de busca por CPF sem correspondência no banco de dados.");
+                    return new ResponseStatusException(HttpStatus.NOT_FOUND, "Paciente não encontrado para o CPF informado.");
+                });
+    }
+
+    @Transactional
+    public void deleteById(Long id) {
+        repository.findById(id)
+                .map(paciente->{
+                    log.info("Paciente encontrado para exclusão. ID interno {}.", paciente.getId());
+                    repository.deleteById(id);
+                    log.info("Paciente excluído. ID interno {}.", paciente.getId());
+                    return 0;
+                })
+                .orElseThrow(() ->{
+                   log.warn("Tentativa de busca por id sem correspondência no banco de dados.");
+                   return new ResponseStatusException(HttpStatus.NOT_FOUND, "Paciente não encontrado para o id informado. ID: " + id);
+                });
+    }
+
+    @Transactional
+    public Paciente updateById(Long id, PacientePutRequestBody p){
+        return repository.findById(id)
+                .map( pacienteBanco->{
+                    PacienteMapper.INSTANCE.updatePacienteFromRequest(p, pacienteBanco);
+                    pacienteBanco.setId(id);
+                    return repository.save(pacienteBanco);
+                })
+                .orElseThrow(()->{
+                    log.warn("Tentativa de busca por id para atualização sem correspondência no banco de dados.");
+                    return new ResponseStatusException(HttpStatus.NOT_FOUND, "Paciente não encontrado para o id informado. ID: " + id);
+                });
     }
 
     public void importarCSV() {
@@ -73,6 +116,7 @@ public class PacienteService {
             throw new RuntimeException("Falha na importação: " + e.getMessage());
         }
     }
+
     private String limparTexto(String texto) {
         if (texto == null || texto.equalsIgnoreCase("NULL") || texto.isBlank()) {
             return null;
@@ -80,3 +124,4 @@ public class PacienteService {
         return texto;
     }
 }
+

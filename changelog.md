@@ -1,4 +1,21 @@
 
+*30/03/2026*
+
+- Implementação do Endpoint updateById (PUT): Desenvolvimento de método para atualização integral de registros, recebendo ID via URL e dados novos via @RequestBody.
+
+- Integração com MapStruct e @MappingTarget: Configuração de interface Mapper para realizar a "cópia" de dados do Request para a Entidade existente no banco, evitando a criação de objetos órfãos e preservando a integridade dos dados.
+
+- Lógica de Atualização Segura no Service: Uso do método .map() sobre o Optional para garantir que a atualização e o repository.save() ocorram apenas em registros previamente localizados.
+
+- Blindagem de Identidade no Update: Implementação de trava lógica no Service (pacienteBanco.setId(id)) para assegurar que o registro atualizado seja sempre o referente ao ID da URL, ignorando possíveis inconsistências no corpo do JSON.
+
+*27/03/2026*
+
+- Implementação do Endpoint deleteById: Criação de método DELETE no PacienteController utilizando @PathVariable para exclusão lógica e física de registros.
+
+- Padronização de Exceções de Deleção: Configuração de ResponseStatusException (404 Not Found) com mensagens personalizadas e logs de aviso (log.warn) para tentativas de exclusão de IDs inexistentes.
+
+
 *25/03/2026*
 
 - Implementação do Endpoint listAll: Criação de método GET no PacienteController para retorno da lista completa de registros via service.findAll().
