@@ -7,7 +7,8 @@ import org.mapstruct.factory.Mappers;
 @Mapper(componentModel = "spring")
 public interface PacienteMapper {
     PacienteMapper INSTANCE = Mappers.getMapper(PacienteMapper.class);
-    Paciente toPaciente(PacientePutRequestBody pacientePutRequestBody);
+
+    Paciente toPaciente(PacientePostRequestBody pacientePostRequestBody);
 
     void updatePacienteFromRequest(PacientePutRequestBody request, @MappingTarget Paciente paciente);
 }

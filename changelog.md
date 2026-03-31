@@ -1,4 +1,15 @@
 
+*31/03/2026*
+
+- Implementação do Endpoint save (POST): Desenvolvimento de método para persistência de novos registros, utilizando o status HTTP 201 Created para confirmar a criação do recurso no servidor.
+
+- Validação de Regra de Negócio (CPF Único): Uso do método ifPresent do Optional no Service para disparar uma ResponseStatusException (409 Conflict), impedindo duplicidade de registros e garantindo a consistência do banco.
+
+- Mapeamento de Entrada com MapStruct: Conversão automática do DTO de entrada para a Entidade, assegurando que o fluxo de criação seja isolado e livre de manipulações indevidas de campos protegidos.
+
+- Integração do SpringDoc OpenAPI 3 (Swagger): Adição da dependência e configuração de classe @Configuration para geração de documentação interativa e testes de endpoints via interface gráfica.
+
+
 *30/03/2026*
 
 - Implementação do Endpoint updateById (PUT): Desenvolvimento de método para atualização integral de registros, recebendo ID via URL e dados novos via @RequestBody.

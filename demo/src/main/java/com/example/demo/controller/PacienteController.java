@@ -1,17 +1,16 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Paciente;
+import com.example.demo.request.PacientePostRequestBody;
 import com.example.demo.request.PacientePutRequestBody;
 import com.example.demo.service.PacienteService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/pacientes")
@@ -48,5 +47,11 @@ public class PacienteController {
     @PutMapping("/{id}")
     public ResponseEntity<Paciente> updateById (@PathVariable long id, @Validated @RequestBody PacientePutRequestBody paciente){
         return ResponseEntity.ok(service.updateById(id, paciente));
+    }
+
+
+    @PostMapping("/")
+    public ResponseEntity<Paciente> addPacient(@Validated @RequestBody PacientePostRequestBody paciente){
+        return new ResponseEntity<>(service.addPacient(paciente), HttpStatus.CREATED);
     }
  }
