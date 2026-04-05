@@ -4,6 +4,10 @@
 
 - Validação de Comportamento e Mocks: Uso do Mockito.verify e ArgumentMatchers para assegurar que as interações com o PacienteRepository ocorrem conforme o esperado, impedindo, por exemplo, que um registro seja salvo caso a validação de CPF falhe.
 
+- Cobertura de Testes Unitários (PacienteController): Configuração do MockMvc para validação de endpoints do PacienteController, assegurando o retorno de status HTTP corretos (200 OK, 201 Created, 204 No Content) e a integridade do corpo das respostas JSON.
+
+- Persistência e Validação de Repositório (PacienteRepository): Execução de testes com @DataJpaTest para validar consultas customizadas (findByCpf) e o ciclo de vida das entidades, assegurando que as restrições de integridade do banco.
+
 *31/03/2026*
 
 - Implementação do Endpoint save (POST): Desenvolvimento de método para persistência de novos registros, utilizando o status HTTP 201 Created para confirmar a criação do recurso no servidor.
