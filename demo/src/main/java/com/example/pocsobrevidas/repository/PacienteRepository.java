@@ -1,12 +1,10 @@
-package com.example.demo.repository;
+package com.example.pocsobrevidas.repository;
 
-import com.example.demo.model.Paciente;
+import com.example.pocsobrevidas.model.Paciente;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Optional;
 
 @Repository

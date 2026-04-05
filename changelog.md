@@ -1,4 +1,9 @@
 
+*05/04/2026*
+- Cobertura de Testes Unitários (PacienteService): Implementação de testes automatizados para os métodos addPacient, findByCpf, updateById e deleteById, validando o comportamento do sistema tanto em cenários de sucesso quanto em disparos de exceção.
+
+- Validação de Comportamento e Mocks: Uso do Mockito.verify e ArgumentMatchers para assegurar que as interações com o PacienteRepository ocorrem conforme o esperado, impedindo, por exemplo, que um registro seja salvo caso a validação de CPF falhe.
+
 *31/03/2026*
 
 - Implementação do Endpoint save (POST): Desenvolvimento de método para persistência de novos registros, utilizando o status HTTP 201 Created para confirmar a criação do recurso no servidor.

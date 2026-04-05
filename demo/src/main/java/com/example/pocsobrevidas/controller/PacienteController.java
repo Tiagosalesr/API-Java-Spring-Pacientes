@@ -1,9 +1,9 @@
-package com.example.demo.controller;
+package com.example.pocsobrevidas.controller;
 
-import com.example.demo.model.Paciente;
-import com.example.demo.request.PacientePostRequestBody;
-import com.example.demo.request.PacientePutRequestBody;
-import com.example.demo.service.PacienteService;
+import com.example.pocsobrevidas.model.Paciente;
+import com.example.pocsobrevidas.request.PacientePostRequestBody;
+import com.example.pocsobrevidas.request.PacientePutRequestBody;
+import com.example.pocsobrevidas.service.PacienteService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,10 +1,10 @@
-package com.example.demo.service;
+package com.example.pocsobrevidas.service;
 
-import com.example.demo.model.Paciente;
-import com.example.demo.repository.PacienteRepository;
-import com.example.demo.request.PacientePostRequestBody;
-import com.example.demo.request.PacienteMapper;
-import com.example.demo.request.PacientePutRequestBody;
+import com.example.pocsobrevidas.model.Paciente;
+import com.example.pocsobrevidas.repository.PacienteRepository;
+import com.example.pocsobrevidas.request.PacientePostRequestBody;
+import com.example.pocsobrevidas.request.PacienteMapper;
+import com.example.pocsobrevidas.request.PacientePutRequestBody;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;

@@ -1,5 +1,5 @@
-package com.example.demo.request;
-import com.example.demo.model.Paciente;
+package com.example.pocsobrevidas.request;
+import com.example.pocsobrevidas.model.Paciente;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.factory.Mappers;

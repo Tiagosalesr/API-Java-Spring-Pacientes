@@ -1,10 +1,11 @@
-package com.example.demo.request;
+package com.example.pocsobrevidas.request;
 
 import lombok.Data;
+
 import java.time.LocalDateTime;
 
 @Data
-public class PacientePostRequestBody {
+public class PacientePutRequestBody {
     private LocalDateTime dataNascimento;
     private String cpf;
     private String cep;
