@@ -1,0 +1,7 @@
+# Ignora absolutamente tudo que não for código fonte
+* linguist-vendored
+
+# Abre exceção apenas para os arquivos Java
+*.java linguist-displaceable=false
+*.java linguist-vendored=false
+*.java linguist-detectable=true

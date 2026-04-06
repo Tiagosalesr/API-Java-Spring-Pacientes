@@ -69,6 +69,7 @@ Esta é uma API REST desenvolvida em **Spring Boot 3.4** para o gerenciamento de
 
 **Nota:** O arquivo docker-compose.yml já está configurado para expor a porta 5433 e persistir os dados em um volume local.
 (O banco rodará na porta 5433, com o usuário tiago, senha 123 e database api_poc_sobrevidas_db, exatamente como o Spring Boot espera no arquivo application.properties).
+
 ---
 **Guia de Comandos Docker Úteis**
 
