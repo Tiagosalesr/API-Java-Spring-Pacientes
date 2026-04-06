@@ -1,0 +1,8 @@
+
+target/* linguist-vendored
+bin/* linguist-vendored
+.idea/* linguist-vendored
+.vscode/* linguist-vendored
+
+
+*.java linguist-detectable=true
